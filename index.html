@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>DART Trip Frequency Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        .features{
+          background-color: rgba(255, 255, 255, 0.7);
+          border-radius: 3px;
+          top: 10px;
+          left: 10px;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+          font: 10px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+          padding: 10px;
+          position: absolute;
+          z-index: 1;
+        }
+        .features h2 {
+            margin: 0 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.3.1/mapbox-gl-geocoder.css' type='text/css' />
+
+<div id='map'></div>
+<div class="features">
+  <h2>My Location History</h2>
+  <div>
+    Since the start of using an Andriod phone, Google has been <br>
+    logging my location history 😱. And they were kind enough <br>
+    for me to download the data and make a map of my own <br>
+    trajectory. Can you guess where I lived?<br>
+    Data format is in GeoJSON, mapping API used is Mapbox GL JS.
+  </div>
+</div>
+
+<script>
+// load map
+mapboxgl.accessToken = 'pk.eyJ1IjoibGh5MDIxIiwiYSI6IlJxc2ZxMGcifQ.8f1io4N7S_qsJmbbpXJa7A';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/lhy021/cixnxzt3g001b2sokhln8hb95',
+    center: [-93.610472, 41.600868],
+    zoom: 6.5,
+
+});
+
+</script>
+
+</body>
+</html>
