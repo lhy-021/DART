@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>DART Trip Frequency Map</title>
+    <title>DART Service Trajectory Map</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.30.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.30.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -32,13 +32,13 @@
 
 <div id='map'></div>
 <div class="features">
-  <h2>My Location History</h2>
+  <h2>DART Service Trajectory</h2>
   <div>
-    Since the start of using an Andriod phone, Google has been <br>
-    logging my location history 😱. And they were kind enough <br>
-    for me to download the data and make a map of my own <br>
-    trajectory. Can you guess where I lived?<br>
-    Data format is in GeoJSON, mapping API used is Mapbox GL JS.
+    Hi, this visualisation is to showncase the service trajectory<br>
+    of DART (Des Moines Area Regional Transit Authority) in <br>
+    Des Moines, IA since the date 11/24/2016. Data is sourced <br>
+    from <a href="http://api.ridedart.com/gtfs/file?key=ef0bd8fa9ef652bcfaea713da3b64078">DART API</a> and is in GTFS format. Mapping tool used is<br>
+     Mapbox GL JS.
   </div>
 </div>
 
@@ -49,11 +49,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGh5MDIxIiwiYSI6IlJxc2ZxMGcifQ.8f1io4N7S_qsJm
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/lhy021/cixnxzt3g001b2sokhln8hb95',
-    center: [-93.610472, 41.600868],
-    zoom: 6.5,
+    center: [-93.625059,41.588450],
+    zoom: 12,
 
 });
-
+// Add zoom and rotation controls to the map.
+var nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'top-right');
+map.addControl(new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+}));
 </script>
 
 </body>
